@@ -4,15 +4,15 @@
 // __________________
 // getICalData.js
 
-
-//var ical = require('ical');
-////var arraytob= require('arrays-to-object');
+var ical = require('ical');
+//var arraytob= require('arrays-to-object');
 //var ArrayList = require('arraylist');
 //var sortarray = require('sort-array');
 
 function getICalData(url, config) {
-	var arr = new ArrayList();
-	var list = new ArrayList();
+	//var arr = new ArrayList();
+	//var list = new ArrayList();
+	var list = new Array();
 
 	var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -35,7 +35,8 @@ function getICalData(url, config) {
 						'end': ev.end
 					}];
 					//console.log("get the row",ev.summary,ev.start,ev.end) -- fetching correct output thou it has duplicates
-					list.add(arr);
+					//list.add(arr);
+					list.push(arr);
 
 					// ArrayList is not working
 					console.log("ArrayList_nowthea", arr);

@@ -22,13 +22,6 @@ app.use(express.static(__dirname + '/public'));
 app.use('/node_modules/rtcmulticonnection-v3', express.static(__dirname + '/node_modules/rtcmulticonnection-v3'));
 
 
-
-var ical = require('ical');
-//var arraytob= require('arrays-to-object');
-var ArrayList = require('arraylist');
-var sortarray = require('sort-array');
-
-
 // get the app environment from Cloud Foundry
 var appEnv = cfenv.getAppEnv();
 
