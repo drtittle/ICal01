@@ -9,7 +9,7 @@
 //var ArrayList = require('arraylist');
 //var sortarray = require('sort-array');
 
-function getICalData(ical, url, config) {
+function getICalData(url, config) {
 	//var arr = new ArrayList();
 	//var list = new ArrayList();
 	var list = new Array();
