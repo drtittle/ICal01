@@ -21,6 +21,9 @@ app.use(express.static(__dirname + '/public'));
 // mount a 'virtual path' to point at our added node packages so Express will resolve
 app.use('/node_modules/rtcmulticonnection-v3', express.static(__dirname + '/node_modules/rtcmulticonnection-v3'));
 
+// mount a 'virtual path' to point at our added node packages so Express will resolve
+app.use('/node_modules/ical', express.static(__dirname + '/node_modules/ical'));
+
 
 // get the app environment from Cloud Foundry
 var appEnv = cfenv.getAppEnv();

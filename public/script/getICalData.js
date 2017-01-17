@@ -29,7 +29,7 @@ function getICalData(ical, url, config) {
 				if (data.hasOwnProperty(k)) {
 					var ev = data[k];
 
-					arr = [{
+					var arr = [{
 						'summary': ev.summary,
 						'start': ev.start,
 						'end': ev.end
