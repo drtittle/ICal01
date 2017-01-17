@@ -39,7 +39,7 @@ function getICalData(url, config) {
 					list.add(arr);
 
 					// ArrayList is not working
-					console.log("ArrayList_nowthea", list);
+					console.log("ArrayList_nowthea", arr);
 
 				}
 

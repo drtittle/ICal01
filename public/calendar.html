@@ -12,7 +12,60 @@
 	<meta name="keywords" content="Bluemix, Cloud, ICal" />
 </head>
 
+			
 <body>
+	<script src="script/getICalData.js"></script>
+
+	<script>
+			document.getElementById('buttonGetICalData').onclick = function() {
+				
+				var url = document.getElementById('textUrlIcal').value;
+				
+				var arr = getICalData(url, {
+					config1: "1",
+					gonfig2: '2'
+				});
+				
+				
+			};
+
+			document.getElementById('input-text-chat').onkeyup = function(e) {
+				if (e.keyCode != 13)
+					return;
+
+				// removing trailing/leading whitespace
+				this.value = this.value.replace(/^\s+|\s+$/g, '');
+				if (!this.value.length)
+					return;
+
+				connection.send(this.value);
+				appendDIV(this.value);
+				this.value = '';
+			};
+
+			var chatContainer = document.querySelector('.chat-output');
+
+			function appendDIV(event) {
+				var div = document.createElement('div');
+				div.innerHTML = event.data || event;
+				chatContainer.insertBefore(div, chatContainer.firstChild);
+				div.tabIndex = 0;
+				div.focus();
+
+				document.getElementById('input-text-chat').focus();
+			}
+			
+			function appendRow(event) {
+				var div = document.createElement('tr');
+				div.innerHTML = event.data || event;
+				chatContainer.insertBefore(div, chatContainer.firstChild);
+				div.tabIndex = 0;
+				div.focus();
+
+			}
+			
+	</script>
+
 	<table align="center" width="90%">
 		<tbody>
 			<tr>
@@ -472,5 +525,42 @@
 							</tr>
 						</tbody>
 					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<table align="center" width="90%">
+		<tbody>
+			<tr></tr>
+			<tr></tr>
+			<tr style="font-size:15;background-color:#2A2322;color:white">
+				<td valign="center"><b><font color="white" size="2">Enter a URL to an ICal file.</font></b><br> </td>
+			</tr>
+			<tr></tr>
+			<tr>
+				<label for="labelUrlIcal">Ical Url:</label>
+				<input type="text" id="textUrlIcal" value="https://calendar.google.com/calendar/ical/o8mfhn5drq7t875vosh3b5kdao%40group.calendar.google.com/public/basic.ics" placeholder="Enter a URL to an ICal file...">
+				<button id="buttonGetICalData">Get ICal Data</button>
+			</tr>
+			<tr>
+				<td>
+					<ul></ul>
+					<table align="center" width="90%">
+						<tbody>
+							<tr>
+								<td style="text-align:left;font-size:10">
+									<li>Please arrive 10-15 minutes prior to your class time.</li>
+								</td>
+
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
 </body>
 </html>
