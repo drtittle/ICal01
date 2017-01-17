@@ -4,7 +4,7 @@
 // __________________
 // getICalData.js
 
-var ical = require('ical');
+//var ical = require('ical');
 //var arraytob= require('arrays-to-object');
 //var ArrayList = require('arraylist');
 //var sortarray = require('sort-array');
