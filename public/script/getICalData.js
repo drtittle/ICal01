@@ -5,11 +5,10 @@
 // getICalData.js
 
 
-var ical = require('ical');
-//var arraytob= require('arrays-to-object');
-var ArrayList = require('arraylist');
-var sortarray = require('sort-array');
-
+//var ical = require('ical');
+////var arraytob= require('arrays-to-object');
+//var ArrayList = require('arraylist');
+//var sortarray = require('sort-array');
 
 function getICalData(url, config) {
 	var arr = new ArrayList();
