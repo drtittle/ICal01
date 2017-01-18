@@ -49,7 +49,7 @@ app.use(express.static(__dirname + '/public'));
 //});
 
 
-var ical = require('./node-ical');
+var ical = require('./node_modules/ical/node-ical');
 //  , months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 // on routes that end in /ical
