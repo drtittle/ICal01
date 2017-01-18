@@ -539,9 +539,9 @@
 				$.ajax({
 					type: 'GET',
 					//data: JSON.stringify(data),
-					//data: { icalUrl: url },
+					data: { icalUrl: url },
 					contentType: 'application/json',
-					url: 'https://ical01.mybluemix.net/cals/:' + encodeURIComponent(url),
+					url: 'https://ical01.mybluemix.net/cals/:icalUrl=' + encodeURIComponent(url),
 					success: function(data) {
 						console.log('success');
 						console.log(JSON.stringify(data));
