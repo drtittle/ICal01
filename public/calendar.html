@@ -14,7 +14,7 @@
 
 			
 <body>
-	<script src="./node_modules/ical/node-ical.js"></script>
+	<script ical="./node_modules/ical/node-ical.js"></script>
 
 	<script src="script/getICalData.js"></script>
 
@@ -516,17 +516,17 @@
 	</table>
 	
 	<script>
-			document.getElementById('buttonGetICalData').onclick = function() {
+		document.getElementById('buttonGetICalData').onclick = function() {
 				
-				var url = document.getElementById('textUrlICal').value;
+			var url = document.getElementById('textUrlICal').value;
 				
-				var arr = getICalData(url, {
-					config1: "1",
-					gonfig2: '2'
-				});
+			var arr = getICalData(url, {
+				config1: "1",
+				gonfig2: '2'
+			});
 				
-				console.log("Array", arr);
-			};
+			console.log("Array", arr);
+		};
 
 
 /*
