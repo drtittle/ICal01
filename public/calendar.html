@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
@@ -12,10 +14,44 @@
 	<meta name="keywords" content="Bluemix, Cloud, ICal" />
 </head>
 
-			
+
 <body>
-	<script src="./node_modules/ical/ical.js"></script>
+	<!--
+	<script src="./node_modules/ical/node-ical.js"></script>
+	
 	<script src="script/getICalData.js"></script>
+-->
+
+	<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('#buttonGetICalData').click(function(e) {
+				e.preventDefault();
+
+				var url = $('textUrlICal').value;
+
+				console.log('buttonGetICalData clicked');
+
+				var data = {};
+				data.title = "title";
+				data.message = "message";
+
+				$.ajax({
+					type: 'GET',
+					//data: JSON.stringify(data),
+					icalUrl: JSON.stringify(url);
+					contentType: 'application/json',
+					url: 'https://ical01.mybluemix.net/ical',
+					success: function(data) {
+						console.log('success');
+						console.log(JSON.stringify(data));
+					}
+				});
+
+			});
+		});
+	</script>
+
 
 	<table align="center" width="90%">
 		<tbody>
@@ -480,8 +516,8 @@
 			</tr>
 		</tbody>
 	</table>
-	
-	
+
+
 	<table align="center" width="90%">
 		<tbody>
 			<tr></tr>
@@ -492,8 +528,7 @@
 			<tr></tr>
 			<tr>
 				<label for="labelUrlIcal">Ical Url:</label>
-				<input type="text" id="textUrlICal" value="https://calendar.google.com/calendar/ical/o8mfhn5drq7t875vosh3b5kdao%40group.calendar.google.com/public/basic.ics" placeholder="Enter a URL to an ICal file..."
-				style="width:500px;">
+				<input type="text" id="textUrlICal" value="https://calendar.google.com/calendar/ical/o8mfhn5drq7t875vosh3b5kdao%40group.calendar.google.com/public/basic.ics" placeholder="Enter a URL to an ICal file..." style="width:500px;">
 				<button id="buttonGetICalData">Get ICal Data</button>
 			</tr>
 			<tr>
@@ -513,8 +548,9 @@
 			</tr>
 		</tbody>
 	</table>
-	
+
 	<script>
+		/*
 		document.getElementById('buttonGetICalData').onclick = function() {
 				
 			var url = document.getElementById('textUrlICal').value;
@@ -526,7 +562,7 @@
 				
 			console.log("Array", arr);
 		};
-
+8?
 
 /*
 			var chatContainer = document.querySelector('.chat-output');
@@ -551,6 +587,6 @@
 			}
 */
 	</script>
-	
+
 </body>
 </html>
