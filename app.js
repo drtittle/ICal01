@@ -61,7 +61,8 @@ var ical = require('./node_modules/ical/node-ical');
 
 // on routes that end in /cals/:icalUrl
 //router.route('/cals/:icalUrl').get(function(req, res, next) {
-app.get('/cals/:icalUrl', function(req, res, next) {
+//app.get('/cals/:icalUrl', function(req, res, next) {
+app.get('/cals', function(req, res, next) {
 
 	var list = new Array();
 	var url = req.params.icalUrl || 'https://calendar.google.com/calendar/ical/o8mfhn5drq7t875vosh3b5kdao%40group.calendar.google.com/public/basic.ics';
