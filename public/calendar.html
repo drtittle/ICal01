@@ -22,36 +22,6 @@
 	<script src="script/getICalData.js"></script>
 -->
 
-	<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
-	<script type="text/javascript">
-		$(function() {
-			$('#buttonGetICalData').click(function(e) {
-				e.preventDefault();
-
-				var url = $('textUrlICal').value;
-
-				console.log('buttonGetICalData clicked');
-
-				var data = {};
-				data.title = "title";
-				data.message = "message";
-
-				$.ajax({
-					type: 'GET',
-					//data: JSON.stringify(data),
-					icalUrl: JSON.stringify(url),
-					contentType: 'application/json',
-					url: 'https://ical01.mybluemix.net/ical',
-					success: function(data) {
-						console.log('success');
-						console.log(JSON.stringify(data));
-					}
-				});
-
-			});
-		});
-	</script>
-
 
 	<table align="center" width="90%">
 		<tbody>
@@ -548,6 +518,38 @@
 			</tr>
 		</tbody>
 	</table>
+
+
+	<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('#buttonGetICalData').click(function(e) {
+				e.preventDefault();
+
+				var url = $('textUrlICal').value;
+
+				console.log('buttonGetICalData clicked');
+
+				var data = {};
+				data.title = "title";
+				data.message = "message";
+
+				$.ajax({
+					type: 'GET',
+					//data: JSON.stringify(data),
+					icalUrl: JSON.stringify(url),
+					contentType: 'application/json',
+					url: 'https://ical01.mybluemix.net/ical',
+					success: function(data) {
+						console.log('success');
+						console.log(JSON.stringify(data));
+					}
+				});
+
+			});
+		});
+	</script>
+
 
 	<script>
 		/*
