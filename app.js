@@ -20,18 +20,10 @@ var bodyParser = require('body-parser');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
-app.use(bodyParser.json());
-// This if for ICAL
-
-// serve our custom files out of ./public as our main files
-app.use(express.static(__dirname + '/public'));
-
-//// mount a 'virtual path' to point at our added node packages so Express will resolve
-//app.use('/node_modules/ical', express.static(__dirname + '/node_modules/ical'));
-
 
 
 // ROUTES FOR OUR API
@@ -117,6 +109,17 @@ router.route('/cals/:icalUrl').get(function(req, res, next) {
 app.use('/api', router);
 
 
+// This if for ICAL
+
+
+
+
+
+// serve our custom files out of ./public as our main files
+app.use(express.static(__dirname + '/public'));
+
+//// mount a 'virtual path' to point at our added node packages so Express will resolve
+//app.use('/node_modules/ical', express.static(__dirname + '/node_modules/ical'));
 
 
 // get the app environment from Cloud Foundry
