@@ -526,7 +526,9 @@
 			$('#buttonGetICalData').click(function(e) {
 				e.preventDefault();
 
-				var url = $('#textUrlICal').value;
+				var url = $('#textUrlICal').value; // NOT WORKING FOR SOME REASON
+				url = 'https://calendar.google.com/calendar/ical/o8mfhn5drq7t875vosh3b5kdao%40group.calendar.google.com/public/basic.ics';
+
 
 				console.log('buttonGetICalData clicked');
 
