@@ -67,10 +67,14 @@ app.get('/cals', function(req, res, next) {
 	var list = new Array();
 	var url = req.params.icalUrl || 'https://calendar.google.com/calendar/ical/o8mfhn5drq7t875vosh3b5kdao%40group.calendar.google.com/public/basic.ics';
 
+	console.log("In GetCals. Url=" + url);
+
 	ical.fromURL(url, {}, function(err, data) {
 		if (err) {
+			console.log(err);
 			res.send(err);
 		} else {
+			console.log("Got ICal data, parsing.")
 			for (var k in data) {
 				if (data.hasOwnProperty(k)) {
 					var ev = data[k];
@@ -93,6 +97,7 @@ app.get('/cals', function(req, res, next) {
 
 			res.json(list);
 		}
+		console.log("next()");
 		next();
 	});
 	res.json(list);
