@@ -64,7 +64,7 @@ var ical = require('./node_modules/ical/node-ical');
 app.get('/cals/:icalUrl', function(req, res, next) {
 
 	var list = new Array();
-	var url = req.params.bear_id || 'https://calendar.google.com/calendar/ical/o8mfhn5drq7t875vosh3b5kdao%40group.calendar.google.com/public/basic.ics';
+	var url = req.params.icalUrl || 'https://calendar.google.com/calendar/ical/o8mfhn5drq7t875vosh3b5kdao%40group.calendar.google.com/public/basic.ics';
 
 	ical.fromURL(url, {}, function(err, data) {
 		if (err) {
