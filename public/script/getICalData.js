@@ -21,6 +21,8 @@ function getICalData(url, config) {
 
 	console.log("mozhi is ere");
 
+	var ical = new ical();
+	
 	ical.fromURL(url, {}, function(err, data) {
 		if (err) {
 			console.log("error nowthea");
