@@ -38,6 +38,10 @@ app.use(express.static(__dirname + '/public'));
 // =============================================================================
 var router = express.Router(); // get an instance of the express Router
 
+// REGISTER OUR ROUTES 
+// all of our routes will be prefixed with /api
+app.use('/api', router);
+
 // middleware to use for all requests
 //router.use(function(req, res, next) {
 //    // do logging
@@ -57,9 +61,9 @@ var ical = require('./node_modules/ical/node-ical');
 // on routes that end in /ical
 //router.route('/ical')
 
-// on routes that end in /ical/:icalUrl
-router.route('/ical/:icalUrl').get(function(req, res) {
-	//app.get('/ical/:icalUrl', function(req, res) {
+// on routes that end in /cals/:icalUrl
+router.route('/cals/:icalUrl').get(function(req, res) {
+	//app.get('/cals/:icalUrl', function(req, res) {
 
 	var list = new Array();
 	var url = req.params.bear_id || 'https://calendar.google.com/calendar/ical/o8mfhn5drq7t875vosh3b5kdao%40group.calendar.google.com/public/basic.ics';
