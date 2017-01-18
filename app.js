@@ -36,11 +36,11 @@ app.use(express.static(__dirname + '/public'));
 
 // ROUTES FOR OUR API
 // =============================================================================
-var router = express.Router(); // get an instance of the express Router
+//var router = express.Router(); // get an instance of the express Router
 
 // REGISTER OUR ROUTES 
 // all of our routes will be prefixed with /api
-app.use('/api', router);
+//app.use('/api', router);
 
 // middleware to use for all requests
 //router.use(function(req, res, next) {
@@ -61,9 +61,15 @@ var ical = require('./node_modules/ical/node-ical');
 // on routes that end in /ical
 //router.route('/ical')
 
+
+//app.route('/book')
+//  .get(function (req, res) {
+//    res.send('Get a random book')
+//  })
+
 // on routes that end in /cals/:icalUrl
-router.route('/cals/:icalUrl').get(function(req, res) {
-	//app.get('/cals/:icalUrl', function(req, res) {
+//router.route('/cals/:icalUrl').get(function(req, res) {
+app.get('/public/cals/:icalUrl', function(req, res, next) {
 
 	var list = new Array();
 	var url = req.params.bear_id || 'https://calendar.google.com/calendar/ical/o8mfhn5drq7t875vosh3b5kdao%40group.calendar.google.com/public/basic.ics';
@@ -94,7 +100,7 @@ router.route('/cals/:icalUrl').get(function(req, res) {
 
 			res.json(list);
 		}
-
+		next();
 	});
 	res.json(list);
 	//return arr;
