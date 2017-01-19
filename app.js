@@ -90,13 +90,12 @@ app.get('/cals', function(req, res, next) {
 					list.push(arr);
 				}
 			}
-			console.log("List: ", list);
-			res.json(list);
+			res.json(JSON.stringify(list));
 		}
 		console.log("next()");
 		next();
 	});
-	res.json(list);
+	//res.json(list);
 	//return arr;
 });
 // This if for ICAL
