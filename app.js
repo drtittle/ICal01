@@ -1,8 +1,5 @@
 /*eslint-env node*/
 
-//------------------------------------------------------------------------------
-// WebRTC starter application for Bluemix
-//------------------------------------------------------------------------------
 
 // This application uses express as its web server
 // for more info, see: http://expressjs.com
@@ -87,14 +84,8 @@ app.get('/cals', function(req, res, next) {
 					//console.log("get the row",ev.summary,ev.start,ev.end) -- fetching correct output thou it has duplicates
 					//list.add(arr);
 					list.push(arr);
-
-					// ArrayList is not working
-					//console.log("ArrayList_nowthea", arr);
 				}
 			}
-			/* arraytob(list);
-                      console.log("theanmozhi arraytob",arraytob);*/
-
 			res.json(list);
 		}
 		console.log("next()");

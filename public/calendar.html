@@ -510,7 +510,6 @@
 								<td id="jsonICalData" style="text-align:left;font-size:10">
 									<li>This is where you'd parse the JSON into a calendar.</li>
 								</td>
-
 							</tr>
 						</tbody>
 					</table>
@@ -526,15 +525,14 @@
 			$('#buttonGetICalData').click(function(e) {
 				e.preventDefault();
 
-				var url = $('#textUrlICal').value; // NOT WORKING FOR SOME REASON
-				url = 'https://calendar.google.com/calendar/ical/o8mfhn5drq7t875vosh3b5kdao%40group.calendar.google.com/public/basic.ics';
-
+				var url = $('#textUrlICal').val();
+				url = url || 'https://calendar.google.com/calendar/ical/o8mfhn5drq7t875vosh3b5kdao%40group.calendar.google.com/public/basic.ics';
 
 				console.log('buttonGetICalData clicked');
 
-				var data = {};
-				data.title = "title";
-				data.message = "message";
+				//var data = {};
+				//data.title = "title";
+				//data.message = "message";
 
 				$.ajax({
 					type: 'GET',
@@ -551,9 +549,6 @@
         				alert(xhr.status);
         				alert(thrownError);
       				}
-					//  .done(function( msg ) {
-					//    alert( "Data Saved: " + msg );
-					//  });
 				});
 			});
 		});
@@ -561,20 +556,6 @@
 
 
 	<script>
-		/*
-		document.getElementById('buttonGetICalData').onclick = function() {
-				
-			var url = document.getElementById('textUrlICal').value;
-				
-			var arr = getICalData(url, {
-				config1: "1",
-				gonfig2: '2'
-			});
-				
-			console.log("Array", arr);
-		};
-8?
-
 /*
 			var chatContainer = document.querySelector('.chat-output');
 
