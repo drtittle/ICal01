@@ -74,9 +74,8 @@ app.get('/cals', function(req, res, next) {
 		} else {
 			console.log("Got ICal data, parsing.");
 			
-			res.json(data);
+			// res.json(data);
 
-			
 			for (var k in data) {
 				if (data.hasOwnProperty(k)) {
 					var ev = data[k];
