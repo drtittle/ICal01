@@ -62,38 +62,42 @@ var ical = require('./node_modules/ical/node-ical');
 //app.get('/cals/:icalUrl', function(req, res, next) {
 app.get('/cals', function(req, res, next) {
 
+	var entries = [];
 	var list = new Array();
 	var url = req.params.icalUrl || 'https://calendar.google.com/calendar/ical/o8mfhn5drq7t875vosh3b5kdao%40group.calendar.google.com/public/basic.ics';
 
-	console.log("In GetCals. Url=" + url);
+	//console.log("In GetCals. Url=" + url);
 
 	ical.fromURL(url, {}, function(err, data) {
 		if (err) {
 			console.log(err);
 			res.send(err);
 		} else {
-			console.log("Got ICal data, parsing.");
-			
-			// res.json(data);
-
+			//console.log("Got ICal data, parsing.");
 			for (var k in data) {
 				if (data.hasOwnProperty(k)) {
 					var ev = data[k];
 
-					var arr = [{
-						'summary': ev.summary,
-						'start': ev.start,
-						'end': ev.end
-					}];
-					console.log("get the row",ev.summary,ev.start,ev.end);
-					//list.add(arr);
-					list.push(arr);
+					//var arr = [{
+					//	'summary': ev.summary,
+					//	'start': ev.start,
+					//	'end': ev.end
+					//}];
+					////console.log("get the row",ev.summary,ev.start,ev.end);
+					////list.add(arr);
+					//list.push(arr);
+					
+					var entry = new Object();
+   					entry.summary = ev.summary;
+   					entry.start  = ev.start;
+   					entry.end = ev.end;
+   					
+					entries.push(entry);
 				}
 			}
-			
-			var response = '{"result":true,"count":1}';
-			res.json(response);
-			
+
+   			var jsonString = JSON.stringify(entries);		
+			res.json(jsonString);
 			
 			//res.json(JSON.stringify(list));
 		}
