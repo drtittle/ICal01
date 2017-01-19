@@ -44,8 +44,8 @@ var app = express();
 //});
 
 
-//var ical = require('./node_modules/ical/node-ical');
-var ical = require('./node_modules/ical/ical');
+var ical = require('./node_modules/ical/node-ical');
+//var ical = require('./node_modules/ical/ical');
 //  , months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 // on routes that end in /ical
