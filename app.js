@@ -90,7 +90,12 @@ app.get('/cals', function(req, res, next) {
 					list.push(arr);
 				}
 			}
-			res.json(JSON.stringify(list));
+			
+			var response = '{"result":true,"count":1}';
+			res.json(response);
+			
+			
+			//res.json(JSON.stringify(list));
 		}
 		console.log("next()");
 		next();
