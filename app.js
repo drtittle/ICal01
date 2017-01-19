@@ -85,11 +85,12 @@ app.get('/cals', function(req, res, next) {
 						'start': ev.start,
 						'end': ev.end
 					}];
-					//console.log("get the row",ev.summary,ev.start,ev.end) -- fetching correct output thou it has duplicates
+					console.log("get the row",ev.summary,ev.start,ev.end);
 					//list.add(arr);
 					list.push(arr);
 				}
 			}
+			console.log("List: ", list);
 			res.json(list);
 		}
 		console.log("next()");
@@ -98,21 +99,7 @@ app.get('/cals', function(req, res, next) {
 	res.json(list);
 	//return arr;
 });
-
-
-// route with parameters (http://localhost:8080/hello/:name)
-//router.get('/hello/:name', function(req, res) {
-//	res.send('hello ' + req.name + '!');
-//});
-
-// REGISTER OUR ROUTES 
-// all of our routes will be prefixed with /api
-//app.use('/', router);
-
-
 // This if for ICAL
-
-
 
 
 
