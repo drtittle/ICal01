@@ -13,53 +13,9 @@ var cfenv = require('cfenv');
 var app = express();
 
 // This is for ICAL
-//var bodyParser = require('body-parser');
-
-// configure app to use bodyParser()
-// this will let us get the data from a POST
-//app.use(bodyParser.json());
-//app.use(bodyParser.urlencoded({
-//	extended: true
-//}));
-
-
-// ROUTES FOR OUR API
-// =============================================================================
-//var router = express.Router(); // get an instance of the express Router
-
-// REGISTER OUR ROUTES 
-// all of our routes will be prefixed with /api
-//app.use('/api', router);
-
-// middleware to use for all requests
-//router.use(function(req, res, next) {
-//    // do logging
-//    console.log('Something is happening.');
-//    next(); // make sure we go to the next routes and don't stop here
-//});
-
-//// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
-//router.get('/ical', function(req, res) {
-//    res.json({ message: 'hooray! welcome to our api!' });   
-//});
-
-
 var ical = require('./node_modules/ical/node-ical');
-//var ical = require('./node_modules/ical/ical');
-//  , months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-// on routes that end in /ical
-//router.route('/ical')
-
-
-//app.route('/book')
-//  .get(function (req, res) {
-//    res.send('Get a random book')
-//  })
 
 // on routes that end in /cals/:icalUrl
-//router.route('/cals/:icalUrl').get(function(req, res, next) {
-//app.get('/cals/:icalUrl', function(req, res, next) {
 app.get('/cals', function(req, res, next) {
 
 	var entries = [];
@@ -78,15 +34,6 @@ app.get('/cals', function(req, res, next) {
 				if (data.hasOwnProperty(k)) {
 					var ev = data[k];
 
-					//var arr = [{
-					//	'summary': ev.summary,
-					//	'start': ev.start,
-					//	'end': ev.end
-					//}];
-					////console.log("get the row",ev.summary,ev.start,ev.end);
-					////list.add(arr);
-					//list.push(arr);
-					
 					var entry = new Object();
    					entry.summary = ev.summary;
    					entry.start  = ev.start;
@@ -95,17 +42,12 @@ app.get('/cals', function(req, res, next) {
 					entries.push(entry);
 				}
 			}
-
    			var jsonString = JSON.stringify(entries);		
 			res.json(jsonString);
-			
-			//res.json(JSON.stringify(list));
 		}
 		console.log("next()");
 		next();
 	});
-	//res.json(list);
-	//return arr;
 });
 // This if for ICAL
 
